@@ -10,22 +10,23 @@ import { ProfileScalarFieldEnum } from './profile-scalar-field.enum';
 
 @ArgsType()
 export class FindManyProfileArgs {
-  @Field(() => ProfileWhereInput, { nullable: true })
-  @Type(() => ProfileWhereInput)
-  where?: ProfileWhereInput;
 
-  @Field(() => [ProfileOrderByWithRelationAndSearchRelevanceInput], { nullable: true })
-  orderBy?: Array<ProfileOrderByWithRelationAndSearchRelevanceInput>;
+    @Field(() => ProfileWhereInput, {nullable:true})
+    @Type(() => ProfileWhereInput)
+    where?: ProfileWhereInput;
 
-  @Field(() => ProfileWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<ProfileWhereUniqueInput, 'id' | 'userId'>;
+    @Field(() => [ProfileOrderByWithRelationAndSearchRelevanceInput], {nullable:true})
+    orderBy?: Array<ProfileOrderByWithRelationAndSearchRelevanceInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => ProfileWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<ProfileWhereUniqueInput, 'id' | 'userId'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [ProfileScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof ProfileScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [ProfileScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof ProfileScalarFieldEnum>;
 }

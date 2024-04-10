@@ -52,7 +52,18 @@ function getModelName(args: {
       return test;
     }
   }
-
+  if (name.endsWith('Edge')) {
+    const test = name.slice(0, -4);
+    if (modelNames.includes(test)) {
+      return test;
+    }
+  }
+  if (name.endsWith('Connection')) {
+    const test = name.slice(0, -10);
+    if (modelNames.includes(test)) {
+      return test;
+    }
+  }
   // eslint-disable-next-line consistent-return, unicorn/no-useless-undefined
   return undefined;
 }
@@ -126,6 +137,7 @@ const middleKeywords = [
   ['DeleteMany', 'Args'],
   ['DeleteOne', 'Args'],
   ['FindMany', 'Args'],
+  ['FindMany', 'WithPaginationArgs'],
   ['FindFirst', 'Args'],
   ['FindOne', 'Args'],
   ['FindUnique', 'Args'],

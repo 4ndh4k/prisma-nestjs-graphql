@@ -5,6 +5,7 @@ import { Project, QuoteKind } from 'ts-morph';
 
 import { argsType } from './handlers/args-type';
 import { combineScalarFilters } from './handlers/combine-scalar-filters';
+import { connectionTypes } from './handlers/connection-types';
 import { createAggregateInput } from './handlers/create-aggregate-input';
 import { emitSingle } from './handlers/emit-single';
 import { generateFiles } from './handlers/generate-files';
@@ -92,6 +93,7 @@ export async function generate(
   config.reExport !== ReExport.None && reExport(eventEmitter);
   config.emitSingle && emitSingle(eventEmitter);
   config.purgeOutput && purgeOutput(eventEmitter);
+  config.emitConnectionTypes && connectionTypes(eventEmitter);
   config.requireSingleFieldsInWhereUniqueInput &&
     requireSingleFieldsInWhereUniqueInput(eventEmitter);
 
@@ -108,6 +110,7 @@ export async function generate(
     eventEmitter,
   });
   const { datamodel, schema } = JSON.parse(JSON.stringify(dmmf)) as DMMF.Document;
+  // console.log('schema', JSON.stringify(schema, null, 2))
   const removeTypes = new Set<string>();
   const eventArguments: EventArguments = {
     schema,

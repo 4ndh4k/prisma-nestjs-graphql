@@ -107,6 +107,7 @@ export function createConfig(data: Record<string, unknown>) {
     emitCompiled: toBoolean(config.emitCompiled),
     emitBlocks: createEmitBlocks(config.emitBlocks as EmitBlocksOption[]),
     omitModelsCount: toBoolean(config.omitModelsCount),
+    emitConnectionTypes: toBoolean(config.emitConnectionTypes),
     $warnings,
     fields,
     purgeOutput: toBoolean(config.purgeOutput),

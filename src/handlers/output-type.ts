@@ -58,7 +58,7 @@ export function outputType(outputType: OutputType, args: EventArguments) {
   importDeclarations.add('ObjectType', nestjsGraphql);
 
   for (const field of outputType.fields) {
-    const { location, isList, type } = field.outputType;
+    const { location, isList, type, namespace } = field.outputType;
     const outputTypeName = getOutputTypeName(String(type));
     const settings = isCountOutput
       ? undefined
@@ -123,7 +123,7 @@ export function outputType(outputType: OutputType, args: EventArguments) {
       const graphqlImport = getGraphqlImport({
         config,
         sourceFile,
-        fileType,
+        fileType: namespace=='model'?'model':fileType,
         location,
         isId: false,
         typeName: outputTypeName,

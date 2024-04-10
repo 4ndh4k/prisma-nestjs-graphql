@@ -10,24 +10,25 @@ import { DummyScalarFieldEnum } from './dummy-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstDummyArgs {
-  @Field(() => DummyWhereInput, { nullable: true })
-  @Type(() => DummyWhereInput)
-  where?: DummyWhereInput;
 
-  @Field(() => [DummyOrderByWithRelationAndSearchRelevanceInput], { nullable: true })
-  @Type(() => DummyOrderByWithRelationAndSearchRelevanceInput)
-  orderBy?: Array<DummyOrderByWithRelationAndSearchRelevanceInput>;
+    @Field(() => DummyWhereInput, {nullable:true})
+    @Type(() => DummyWhereInput)
+    where?: DummyWhereInput;
 
-  @Field(() => DummyWhereUniqueInput, { nullable: true })
-  @Type(() => DummyWhereUniqueInput)
-  cursor?: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
+    @Field(() => [DummyOrderByWithRelationAndSearchRelevanceInput], {nullable:true})
+    @Type(() => DummyOrderByWithRelationAndSearchRelevanceInput)
+    orderBy?: Array<DummyOrderByWithRelationAndSearchRelevanceInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => DummyWhereUniqueInput, {nullable:true})
+    @Type(() => DummyWhereUniqueInput)
+    cursor?: Prisma.AtLeast<DummyWhereUniqueInput, 'id'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [DummyScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof DummyScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [DummyScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof DummyScalarFieldEnum>;
 }

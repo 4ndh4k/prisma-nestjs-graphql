@@ -15,8 +15,9 @@ generator nestgraphql {
   combineScalarFilters                  = false
   reExport                              = None
   emitSingle                            = false
+  emitConnectionTypes                   = true
   emitCompiled                          = false
-  purgeOutput                           = false
+  purgeOutput                           = true
   requireSingleFieldsInWhereUniqueInput = false
   fields_Validator_from                 = "class-validator"
   fields_Validator_input                = true

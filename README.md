@@ -1,12 +1,23 @@
 # prisma-nestjs-graphql
 
 Generate object types, inputs, args, etc. from prisma schema file for usage with @nestjs/graphql module.
+## Fork features
+
+- Generate Relay style connection types, eg:
+  - UserConnection
+  - UserEdge
+  - FindManyUserWithPaginationArgs
+- As well as generic
+   - pagination.input
+   - page-info.output
+
 
 ## Features
 
 - Generates only necessary imports
 - Combines zoo of nested/nullable filters
 - Does not generate resolvers, since it's application specific
+
 
 ## Install
 
@@ -113,6 +124,22 @@ generator nestgraphql {
 Generate single file with merged classes and enums.  
 Type: `boolean`  
 Default: `false`
+
+#### `emitConnectionTypes`
+
+Generate Relay style connection types:
+For each model in `${modelName}/`
+  - `${ModelName}`Connection
+  - `${ModelName}`Edge
+  - FindMany`${ModelName}`WithPaginationArgs
+
+And generic files in `prisma/`
+   - PaginationInput 
+   - PageInfo
+
+Type: `boolean`  
+Default: `false`
+
 
 #### `emitCompiled`
 
